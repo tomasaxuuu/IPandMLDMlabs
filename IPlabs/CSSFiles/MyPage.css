@@ -1,7 +1,7 @@
 *{
 	padding: 0;
 	margin: 0;
-	border: 0;
+    border: 0;
 }
 *,*:before,*:after{
 	-moz-box-sizing: border-box;
@@ -104,4 +104,44 @@ body {
     font-size: 24px;
     color:white;
     margin-right:40px;
+}
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 315px 0px 0px 0px;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.text {
+    color:#B38CF3;
+    font-size: 32px;
+    text-align: justify;
+    height: 234px;
+    width: 426px;
+}
+.laboratories {
+  display: inline-block;
+  cursor: pointer;
+  height: 52px;
+  line-height: 40px;
+  padding: 0 10px;
+  color: white;
+  background-color: transparent;
+  border: solid 1px;
+  border-image: linear-gradient(to left, #973ad5 0%, #d5733a 100%);
+  border-image-slice: 1;
+  width: 238px;
+}
+.labs {
+    color:white;
+    font-size: 20px;
+    height: 52px;
+    width: 238px;
 }

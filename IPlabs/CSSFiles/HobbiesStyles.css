@@ -37,7 +37,7 @@ img{vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 
 html {
-    background-image: url(../IMG/space6.jpg);
+    background-image: url(../IMG/space5.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -86,7 +86,7 @@ body {
     cursor: pointer;
     font-size: 16px;
 }
-.buts:nth-child(2) {
+.buts:nth-child(3) {
     color:#B38CF3;
 }
 .soc {
@@ -110,53 +110,5 @@ main {
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 150px 40px 0px 40px;
+    padding: 100px 40px 0px 40px;
 }
-.justify {
-    width: 33,3333%;
-    height: 562px;
-    font-size: 28px;
-    color:white;
-    text-align: justify;
-    padding: 20px 40px 0px 40px;
-}
-.img{
-    width: 304px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items:center;
-}
-.img:nth-child(2){
-    padding-top: 30px;
-}
-@media (max-width: 1070px) {
-    .phone {
-        display: none;
-    }
-    .link-container {
-        width: 550px;
-    }
-}
-@media (max-width: 833px) {
-    .justify {
-        font-size: 20px;
-    }
-}
-@media (max-width: 811px) {
-    .logo {
-        font-size: 20px;
-    }
-    .justify {
-        font-size: 15px;
-    }
-}
-@media (max-width: 749px) {
-    .logo {
-        font-size: 15px;
-    }
-    .link-container {
-        width: 640px;
-    }
-}
-
