@@ -112,3 +112,37 @@ main {
     justify-content: center;
     padding: 100px 40px 0px 40px;
 }
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.columns {
+    display: flex;
+    justify-content: center;
+    align-items: space-between;
+    margin: 30px 40px 50px 50px;
+    flex-direction: column;
+    width: 44%;
+}
+.imgs {
+    width: 704px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items:center;
+}
+.text-place{
+    padding-top: 100px;
+    display: flex;
+    font-size: 24px;
+    color:white;
+    text-align: justify;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: Showcard Gothic, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    line-height: 1.2;
+}
+.columns:nth-child(2) .text-place{
+    color:#B38CF3;
+}
