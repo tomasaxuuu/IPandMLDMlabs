@@ -95,13 +95,16 @@ body {
     display: inline-block;
     margin-left: 10px;
 }
-.phone {
+.url {
     display: flex;
     justify-content: center;
     align-items:center;
     font-size: 24px;
     color:white;
     margin-right:40px;
+}
+.url a {
+    color:white;
 }
 main {
     width: 100%;
