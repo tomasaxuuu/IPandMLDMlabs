@@ -120,7 +120,8 @@ main {
 .contacts li{
     margin-bottom: 10px;
     border: 2px solid;
-     border-image: linear-gradient(to left, #973ad5 0%, #d5733a 100%);
+    border-radius: 2px;
+    border-image: linear-gradient(to left, #973ad5 0%, #d5733a 100%);
     border-image-slice: 1;
 }
 .pagess{
