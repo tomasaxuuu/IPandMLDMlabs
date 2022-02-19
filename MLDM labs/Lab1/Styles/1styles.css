@@ -48,7 +48,8 @@ body, html {
     width: 540px;
     border-color: black;
     text-align: center;
-    padding: 2px 0;
+    padding: 5px 0;
+    margin-top: 10px;
 }
 .sub {
     background-color:darkseagreen;
@@ -58,6 +59,8 @@ body, html {
     border-color: black;
     color: black;
     cursor: pointer;
+    margin-top: 10px;
+    padding: 3px 0;
 }
 .places::-webkit-input-placeholder {
     color:rgb(0, 0, 0);
@@ -74,4 +77,14 @@ body, html {
  .results {
      font-size: 30px;
      font-family: Arial, Helvetica, sans-serif;
+ }
+ .res {
+     display: flex;
+     flex-direction: row;
+     width: 100px;
+     justify-content: space-between;
+ }
+ .res p {
+     padding-top: 8px;
+     padding-left: 5px;
  }
