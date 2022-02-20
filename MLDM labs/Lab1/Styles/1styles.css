@@ -83,6 +83,7 @@ body, html {
      flex-direction: row;
      width: 100px;
      justify-content: space-between;
+     margin-right: 105px;
  }
  .res p {
      padding-top: 8px;
