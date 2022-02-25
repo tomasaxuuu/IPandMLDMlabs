@@ -1,3 +1,11 @@
+@font-face {
+	font-family: 'Showcard Gothic';
+	src: url('../Fonts/SHOWG.eot');
+	src: local('☺'), url('../Fonts/SHOWG.woff') format('woff'), url('../Fonts/SHOWG.ttf') format('truetype'), url('../Fonts/SHOWG.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
 *{
 	padding: 0;
 	margin: 0;
@@ -47,7 +55,7 @@ html {
     background-size: cover;
 }
 body {
-    font-family:Showcard Gothic;
+    font-family: 'Showcard Gothic';
 }
 .fixed {
     max-width: 1800px;
@@ -133,8 +141,8 @@ main {
 .img:nth-child(2){
     padding-top: 30px;
 }
-@media (max-width: 1070px) {
-    .phone {
+/* @media (max-width: 1070px) {
+    .url {
         display: none;
     }
     .link-container {
@@ -161,5 +169,37 @@ main {
     .link-container {
         width: 640px;
     }
+} */
+
+.burger{
+    display: none;
+    position: relative;
+    height: 25px;
+    width: 25px;
+}
+@media (max-width: 950px) {
+    .url {
+        display: none;
+    }
+    .social {
+        display: none;
+    }
+    .link-container {
+        display: flex;
+        justify-content: center;
+    }
+    .logo {
+        font-size: 23px;
+    }
+}
+@media (max-width: 590px) {
+   .link-container{
+       display: none;
+   }
+   .burger {
+       display: flex;
+       cursor: pointer;
+       margin-right: 40px;
+   }
 }
 
