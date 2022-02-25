@@ -218,3 +218,11 @@ main {
         margin-left: -84px;
     }
 }
+@media (max-width: 333px) {
+    .imgs {
+        width: 300px;
+    }
+    .text-place {
+        margin-left: -90px;
+    }
+}
