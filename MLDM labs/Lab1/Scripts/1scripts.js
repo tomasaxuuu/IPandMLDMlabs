@@ -17,7 +17,7 @@ function Validation(mes) {
                 mass = false;
                 break;
             }
-            if (!(mass[i][0] < 'A' || mass[i][0] > 'z')) {
+            if (!(mass[i][1] < 'A' || mass[i][1] > 'z')) {
                 error_message = 'Второй элемент должен быть цифрой!';
                 mass = false;
                 break;
