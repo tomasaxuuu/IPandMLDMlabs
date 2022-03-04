@@ -1,7 +1,7 @@
 var error_message = "";
 // Функция валидации (проверка логического ввода матриц)
 function validation(mas) {
-    let boolu = true;
+    let valid = true;
     if(mas.length > 0) {
         let bool = mas.split('\n');
         // проверка на валидацию
@@ -9,12 +9,12 @@ function validation(mas) {
             for(let j = 0; j < bool.length; j++) {
                 if(bool[i][j] != '1' && bool[i][j] != '0') {
                     error_message = "В матрице могут быть только 0 и 1!";
-                    boolu = false;
+                    valid = false;
                     break;
                 }
                 if(bool.length != bool[i].length) {
                     error_message = "Матрица должна быть квадратной!";
-                    boolu = false;
+                    valid = false;
                     break;
                 }
             }
@@ -22,9 +22,9 @@ function validation(mas) {
     }
    else  {
        error_message = "Поле не должно быть пустым!"
-       boolu = false;
+       valid = false;
    }
-    return boolu;
+    return valid;
 }
 
 function sets() {
@@ -84,25 +84,25 @@ function sets() {
             document.getElementById('symmetry').innerHTML = "Симметрична";
         }
         else {
-            document.getElementById('symmetry').innerHTML = "НеСимметрична";
+            document.getElementById('symmetry').innerHTML = "Не симметрична";
         }
         if(reflex == true) {
             document.getElementById('reflexivity').innerHTML = "Рефлексивна";
         }
         else {
-            document.getElementById('reflexivity').innerHTML = "НеРефлексивна";
+            document.getElementById('reflexivity').innerHTML = "Не рефлексивна";
         }
         if(transitivity == true) {
             document.getElementById('transitivity').innerHTML = "Транзитивна";
         }
         else {
-            document.getElementById('transitivity').innerHTML = "НеТранзитивна";
+            document.getElementById('transitivity').innerHTML = "Не транзитивна";
         }
         if(skewSymmetry == true) {
             document.getElementById('skewSymmetry').innerHTML = "Кососимметрична";
         }
         else {
-            document.getElementById('skewSymmetry').innerHTML = "НеКососимметрична";
+            document.getElementById('skewSymmetry').innerHTML = "Не кососимметрична";
         }
     }
     // вывод ошибки при validation == false

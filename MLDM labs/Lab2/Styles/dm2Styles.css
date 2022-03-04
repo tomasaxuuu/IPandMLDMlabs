@@ -11,7 +11,7 @@
 a:focus,a:active{outline: none;}
 nav,footer,header,aside{display: block;}
 body, html {
-    background-color:grey;
+    background-color:rgb(26, 156, 128);
     height: 100%;
     margin: 0;
     padding: 0;
@@ -30,6 +30,7 @@ body, html {
     align-items: center;
     padding: 10px 0;
     flex-direction: column;
+    margin-bottom: 200px;
 }
 .forms {
     display: flex;
@@ -89,9 +90,13 @@ body, html {
      display: flex;
      width: 100px;
      justify-content: space-between;
-     margin-right: 105px;
+     width: 100%;
+     margin-left: 100px;
  }
  .res p {
-     padding-top: 8px;
+     padding-top: 3px;
      padding-left: 5px;
+     font-size: 15px;
+     font-weight: bold;
+     width: 100%;
  }
