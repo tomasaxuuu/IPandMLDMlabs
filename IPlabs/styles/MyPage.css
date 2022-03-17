@@ -1,7 +1,7 @@
 @font-face {
 	font-family: 'Showcard Gothic';
-	src: url('../Fonts/SHOWG.eot');
-	src: local('☺'), url('../Fonts/SHOWG.woff') format('woff'), url('../Fonts/SHOWG.ttf') format('truetype'), url('../Fonts/SHOWG.svg') format('svg');
+	src: url('../fonts/SHOWG.eot');
+	src: local('☺'), url('../fonts/SHOWG.woff') format('woff'), url('../fonts/SHOWG.ttf') format('truetype'), url('../fonts/SHOWG.svg') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -9,7 +9,7 @@
 *{
 	padding: 0;
 	margin: 0;
-	border: 0;
+    border: 0;
 }
 *,*:before,*:after{
 	-moz-box-sizing: border-box;
@@ -30,7 +30,6 @@ html,body{
 	-ms-text-size-adjust: 100%;
 	-moz-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
-    
 }
 input,button,textarea{font-family:inherit;}
 
@@ -45,7 +44,7 @@ img{vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 
 html {
-    background-image: url(../IMG/space2.jpg);
+    background-image: url(../IMG/space1.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -94,6 +93,9 @@ body {
     cursor: pointer;
     font-size: 16px;
 }
+.buts:nth-child(1) {
+    color:#B38CF3;
+}
 .soc {
     display: flex;
     justify-content: center;
@@ -108,36 +110,51 @@ body {
     justify-content: center;
     align-items:center;
     font-size: 24px;
-    color:#B38CF3;
+    color:white;
     margin-right:40px;
 }
 .url a {
-    color:#B38CF3;
+    color:white;
 }
 main {
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    padding: 315px 0px 0px 0px;
 }
-.flex{
+.center {
     display: flex;
-    width: 100%;
     justify-content: center;
-    padding-top: 320px;
+    align-items: center;
+    flex-direction: column;
 }
-.contacts li{
-    margin-bottom: 10px;
-    border: 2px solid;
-    border-radius: 2px;
-    border-image: linear-gradient(to left, #973ad5 0%, #d5733a 100%);
-    border-image-slice: 1;
+.text {
+    color:#B38CF3;
+    font-size: 32px;
+    text-align: justify;
+    line-height: 1.5;
+    width: 30%;
+    margin-bottom: 30px;
 }
-.pagess{
-    background: linear-gradient(20deg,#B38CF3 38%, #00deff 65%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 40px;
-    text-align: center;
+.laboratories {
+  display: inline-block;
+  cursor: pointer;
+  height: 52px;
+  line-height: 40px;
+  padding: 0 10px;
+  color: white;
+  background-color: transparent;
+  border: solid 1px;
+  border-image: linear-gradient(to left, #973ad5 0%, #d5733a 100%);
+  border-image-slice: 1;
+  width: 238px;
+  font-size: 20px;
+}
+.labs {
+    color:white;
+    height: 52px;
+    width: 238px;
 }
 .burger{
     display: none;
@@ -145,7 +162,7 @@ main {
     height: 25px;
     width: 25px;
 }
-@media (max-width: 950px) {
+@media (max-width: 960px) {
     .url {
         display: none;
     }
@@ -155,9 +172,16 @@ main {
     .link-container {
         display: flex;
         justify-content: center;
+        margin-right: 20px;
     }
     .logo {
-        font-size: 23px;
+        font-size: 20px;
+        width: 100%;
+    }
+    .text {
+        margin-top: -100px;
+        height: 30%;
+        width: 50%;
     }
 }
 @media (max-width: 590px) {
@@ -169,9 +193,15 @@ main {
        cursor: pointer;
        margin-right: 40px;
    }
+   .text {
+       margin-top: -100px;
+       height: 50%;
+       width: 90%;
+   }
 }
-@media (max-width: 525px) {
-    .pagess {
-        font-size: 35px;
+ @media (max-width: 490px) {
+    .text {
+       height: 30%;
+       width: 90%;
     }
 }
