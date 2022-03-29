@@ -1,0 +1,103 @@
+*{
+    padding: 0;
+
+}
+*,*:before,*:after{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+body, html {
+    background-color:rgb(183, 0, 255);
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.wrap {
+    display: flex;
+    min-height: 100%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    flex-direction: column;
+    margin-bottom: 200px;
+}
+.forms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100px;
+    justify-content: space-between;
+}
+.name {
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.sub {
+    background-color:rgb(0, 140, 255);
+    height: 40px;
+    min-height: 30px;
+    width: 150px;
+    border-radius: 20px;
+    border-color: black;
+    color: black;
+    cursor: pointer;
+    margin-top: 10px;
+    padding: 3px 0;
+}
+.matrix {
+    font-size: 15px;
+    font-family: Arial;
+    background-color:rgb(0, 140, 255);
+    border-radius: 20px;
+    padding: 10px;
+    border-color:rgb(0, 0, 0);
+    overflow: hidden;
+    height: 50px;
+    min-height: 60px;
+    width: 400px;
+    margin-bottom: 15px;
+  }
+.matrix::-webkit-input-placeholder {
+    color:rgb(0, 0, 0);
+ }
+ .matrix:-moz-placeholder {
+    color:rgb(0, 0, 0);
+ }
+ .matrix::-moz-placeholder {
+    color:rgb(0, 0, 0);
+ }
+ .matrix:-ms-input-placeholder {
+    color:rgb(0, 0, 0);
+ }
+ .results {
+     font-size: 30px;
+     font-family: Arial, Helvetica, sans-serif;
+ }
+ .res {
+    background-color:rgb(0, 140, 255);
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 2px solid black;
+    border-color:black;
+ }
+ .res p {
+     text-align: center;
+     padding-top: 3px;
+     padding-left: 5px;
+     font-size: 15px;
+     width: 100%;
+ }
