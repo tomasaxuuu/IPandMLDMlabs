@@ -12,12 +12,18 @@
         <div class="main">
             <h1 class="name">Третья лабораторная работа</h1>
             <form method="" class="forms" onsubmit="return false;">
-                <input class="matrix" type="text" id="firstSet" autocomplete="off" placeholder="Введите элементы первого множества (А):">
-                <input class="matrix" type="text" id="secondSet" autocomplete="off" placeholder="Введите элементы второго множества (B):">
-                <input class="matrix" type="text" id="relationships" autocomplete="off" placeholder="Введите отношения:">
+                <input class="matrix" type="text" id="firstSet" autocomplete="off" placeholder="Введите четыре элемента множества (A) через пробел:">
+                <input class="matrix" type="text" id="secondSet" autocomplete="off" placeholder="Введите четыре элемента множества (B) через пробел:">
+                <input class="matrix" type="text" id="relationships" autocomplete="off" placeholder="Введите отношения вида AB, ... :">
                 <input class="sub" type="button" value="Подтвердить" onclick="rel()">
                 <div class="res">
                     <p id="results"></p>
+                </div>
+                <div class="res">
+                    <p id="A_B"></p>
+                </div>
+                <div class="res">
+                    <p id="B_A"></p>
                 </div>
             </form>
         </div>

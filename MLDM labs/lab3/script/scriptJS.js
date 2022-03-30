@@ -6,17 +6,26 @@ function validation(firstSet, secondSet, relation) {
     let rel = relation.split(', ');
     let valid = true;
     if(firstSet.length > 0 && secondSet.length > 0 && relation.length > 0) {
-        if(a.length != 4) {
-            error_message = "Размер первого множества должен быть равен четырём!"
+        if(a.length != 4 || b.length != 4) {
+            error_message = "Размер множеств должен быть равен четырём элементам!"
             valid = false;
         }
-        if(b.length != 4) {
-            error_message = "Размер второго множества должен быть равен четырём!"
-            valid = false;
-        }
-        if(rel.length != 4) {
-            error_message = "Размер матрицы отношения должен иметь длину А + B!"
-            valid = false;
+        for(let j = 0; j < rel.length; j++) {
+            if(rel.length != 4) {
+                error_message = "Размер матрицы отношения должен иметь длину А + B!"
+                valid = false;
+                break;
+            }
+            if(!(rel[j][0] == a[0] || rel[j][0] == a[1] || rel[j][0] == a[2] || rel[j][0] == a[3])) {
+                error_message = "Не хватает элементов множества А!";
+                valid = false;
+                break;
+            } 
+            if(!(rel[j][1] == b[0] || rel[j][1] == b[1] || rel[j][1] == b[2] || rel[j][1] == b[3])) {
+                error_message = "Не хватает элементов множества B!";
+                valid = false;
+                break;
+            } 
         }
     }
     else {
@@ -33,13 +42,7 @@ function rel() {
     let relation = document.getElementById('relationships');
     let resultArray = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]];
     let res = true;
-    if (validation(setA.value, setB.value, relation.value)) {
-        
-    }
-    else {
+    if (!(validation(setA.value, setB.value, relation.value))) {
         alert(error_message);
     }
-    // if (!(validation(setA.value, setB.value, relation.value))) {
-    //     alert(error_message);
-    // }
 }
