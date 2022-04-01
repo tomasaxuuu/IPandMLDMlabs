@@ -16,16 +16,43 @@ function validation(firstSet, secondSet, relation) {
                 valid = false;
                 break;
             }
-            if(!(rel[j][0] == a[0] || rel[j][0] == a[1] || rel[j][0] == a[2] || rel[j][0] == a[3])) {
+            if(rel[j].length != 2) {
+                error_message = "Размер элемента должен быть равен 2!"
+                valid = false;
+                break;
+            }
+            // if(!(rel[j][0] == a[0] || rel[j][0] == a[1] || rel[j][0] == a[2] || rel[j][0] == a[3])) {
+            //     error_message = "Не хватает элементов множества А!";
+            //     valid = false;
+            //     break;
+            // } 
+            // if(!(rel[j][1] == b[0] || rel[j][1] == b[1] || rel[j][1] == b[2] || rel[j][1] == b[3])) {
+            //     error_message = "Не хватает элементов множества B!";
+            //     valid = false;
+            //     break;
+            // }
+            switch (rel[j][0]) {
+                case a[0]:
+                case a[1]:
+                case a[2]:
+                case a[3]:
+                    break;
+                    
+                default:
+                valid = false;
                 error_message = "Не хватает элементов множества А!";
+            }
+            switch (rel[j][1]) {
+                case b[0]:
+                case b[1]:
+                case b[2]:
+                case b[3]:
+                    break;
+
+                default:
                 valid = false;
-                break;
-            } 
-            if(!(rel[j][1] == b[0] || rel[j][1] == b[1] || rel[j][1] == b[2] || rel[j][1] == b[3])) {
                 error_message = "Не хватает элементов множества B!";
-                valid = false;
-                break;
-            } 
+            }
         }
     }
     else {
