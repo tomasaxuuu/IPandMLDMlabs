@@ -14,20 +14,22 @@
             <form method="" class="forms" onsubmit="return false;">
                 <input class="matrix" type="text" id="firstSet" autocomplete="off" placeholder="Введите четыре элемента множества (A) через пробел:">
                 <input class="matrix" type="text" id="secondSet" autocomplete="off" placeholder="Введите четыре элемента множества (B) через пробел:">
-                <input class="matrix" type="text" id="relationships" autocomplete="off" placeholder="Введите отношения вида AB, ... :">
+                <input class="matrix" type="text" id="relationships" autocomplete="off" placeholder="Введите отношения вида AB,..,:">
                 <input class="sub" type="button" value="Подтвердить" onclick="rel()">
-                <div class="res">
-                    <p id="results"></p>
+                <h2 class="matr">Матрица отношений:</h2>
+                <div class="matrix1">
+                    <p id="results1"></p>
+                    <p id="results2"></p>
+                    <p id="results3"></p>
+                    <p id="results4"></p>
                 </div>
+                <h2 class="matr">Проверка на функцию:</h2>
                 <div class="res">
-                    <p id="A_B"></p>
-                </div>
-                <div class="res">
-                    <p id="B_A"></p>
+                    <p id="AB"></p>
                 </div>
             </form>
         </div>
     </div>
-    <script src="../script/scriptJS.js"></script>
+    <script src="../script/script.js"></script>
 </body>
 </html>
