@@ -63,7 +63,8 @@ function rel() {
         [0, 0, 0, 0], 
         [0, 0, 0, 0]
     ];
-    let final = true;
+    let finalA = true;
+    let finalB = true;
     if (validation(setA, setB, relat)) {
         setA = setA.split(' ');
         setB = setB.split(' ');
@@ -72,23 +73,36 @@ function rel() {
                 resultArray[Array.from(setA).indexOf(relat[i][0])][Array.from(setB).indexOf(relat[i][1])] = 1;
             }
         }
+        let sumA = 0;
+        let sumB = 0;
         for (let i = 0; i < resultArray.length; i++){
-            sum = 0;
+            sumA = 0;
+            sumB = 0;
             for (let j = 0; j < resultArray[0].length; j++){
-                sum += resultArray[i][j];
+                sumA += resultArray[i][j];
+                sumB += resultArray[j][i];
             }
-            if (sum != 1) {
-                final = false;
+            if (sumA != 1) {
+                finalA = false;
+            }
+            if (sumB != 1) {
+                finalB = false;
             }
         }
         for (let i = 1; i < resultArray.length + 1; i++){
             document.getElementById('results' + i).innerHTML = resultArray[i - 1].join('');
         }
-        if (final) {
-            document.getElementById('AB').innerHTML = "Отношение является функцией";
+        if (finalA) {
+            document.getElementById('AB').innerHTML = "Отношение является функцией (A к B)";
         }
         else {
-            document.getElementById('AB').innerHTML = "Отношение не является функцией";
+            document.getElementById('AB').innerHTML = "Отношение не является функцией (A к B)";
+        }
+        if (finalB) {
+            document.getElementById('BA').innerHTML = "Отношение является функцией (B к A)";
+        }
+        else {
+            document.getElementById('BA').innerHTML = "Отношение не является функцией (B к A)";
         }
     }
     else {
