@@ -6,21 +6,14 @@ function validation(firstSet, secondSet, relation) {
     let rel = relation;
     let valid = true;
     if(firstSet.length > 0 && secondSet.length > 0 && relation.length > 0) {
-        //проверка длины множеств
         if(a.length != 4 || b.length != 4) {
-            error_message = "Размер множеств должен быть равен четырём элементам!"
+            error_message = "Размер множеств A и B должен быть равен четырём элементам!"
             valid = false;
         }
         for(let i = 0; i < rel.length; i++) {
-            //проверка длины множества отношений
-            if(rel.length != 4) {
-                error_message = "Размер множества отношения должен иметь длину А + B!"
-                valid = false;
-                break;
-            }
             // проверка размерности каждого элемента
             if(rel[i].length != 2) {
-                error_message = "Размер элемента должен быть равен 2!"
+                error_message = "Размер элемента отношения должен быть равен 2!"
                 valid = false;
                 break;
             }
@@ -34,7 +27,7 @@ function validation(firstSet, secondSet, relation) {
                     
                 default:
                 valid = false;
-                error_message = "Не хватает элементов множества А!";
+                error_message = "Отношения должно быть вида AjBj, AjBj, AjBj, AjBj";
             }
             // проверка второго на приадлежность к множеству B
             switch (rel[i][1]) {
@@ -46,7 +39,7 @@ function validation(firstSet, secondSet, relation) {
 
                 default:
                 valid = false;
-                error_message = "Не хватает элементов множества B!";
+                error_message = "Отношения должно быть вида AjBj, AjBj, AjBj, AjBj";
             }
         }
     }
@@ -59,9 +52,9 @@ function validation(firstSet, secondSet, relation) {
 
 //основная функция
 function rel() {
-    let setA = document.getElementById('firstSet').value;
-    let setB = document.getElementById('secondSet').value;
-    let relat = document.getElementById('relationships').value.split(',');
+    let setA = document.getElementById('firstSet').value.trim();
+    let setB = document.getElementById('secondSet').value.trim();
+    let relat = document.getElementById('relationships').value.trim().split(', ');
     // массив из 0 для записи в него матрицы отношений
     let resultArray = [
         [0, 0, 0, 0], 
