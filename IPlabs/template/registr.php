@@ -2,23 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../styles/Links.css">
-    <title>Links</title>
+    <link rel="stylesheet" type="text/css" href="../styles/registr.css">
+    <title>Registration</title>
 </head>
 <body>
     <div class="fixed">
         <header id="header">
-            <a class="logo" href="#">Links</a>
-            <div class="burger"><img src="../IMG/menu.png"></div>
+            <a class="logo" href="#">Registration</a>
             <div class="link-container">
                 <div class="pages">
                     <a class="buts" href="../index.html">Home</a>
                     <a class="buts" href="../pages/Aboutme.html">About me</a>
                     <a class="buts" href="../pages/Hobbies.html">Hobbies</a>
                     <a class="buts" href="../pages/Gallery.html">Gallery</a>
-                    <a class="buts" href="../template/auth.php">Auth</a>
+                    <a class="buts" href="#">Registr</a>
                 </div>
                 <div class="soc">
                     <a class="social" target="blank" href="https://www.instagram.com/tomasaxuuu/"><img src="../IMG/inst.png" width="25" height="25"></a>
@@ -30,17 +27,26 @@
         </header>
     </div>
     <main>
-        <div class="flex">
-            <div class="contacts">
-                <ul>
-                    <li class="pagess"><a href="https://www.instagram.com/tomasaxuuu/">My instagram</a></li>
-                    <li class="pagess"><a href="https://vk.com/tomasaxuuu">My VKontakte</a></li>
-                    <li class="pagess"><a href="https://open.spotify.com/user/5uh6ik7nbma6wbpaiq9ljr3i9">My Spotify</a></li>
-                    <li class="pagess"><a href="mailto:bratov.tima@mail.ru">For letters</a></li>
-                    <li class="pagess"><a href="https://t.me/tomasaxuuu">Telegram</a></li>
-                </ul>
-            </div>
-        </div>
+    <!-- Форма авторизации -->
+    <form action="" method="">
+        <h1>Регистрация</h1>
+        <label>ФИО</label>
+        <input type="text" placeholder="Введите имя">
+        <label>Почта</label>
+        <input type="email" placeholder="Введите почту">
+        <label>Аватар</label>
+        <input type="file">
+        <label>Логин</label>
+        <input type="text" placeholder="Введите логин">
+        <label>Пароль</label>
+        <input type="password" placeholder="Введите пароль">
+        <label>Подтвердите пароль</label>
+        <input type="password" placeholder="Введите пароль еще раз">
+        <button>Войти</button>
+        <p>
+        Уже есть аккаунт? <a href="./auth.php">Авторизироваться</a>
+        </p>
+    </form>
     </main>
 </body>
 </html>
