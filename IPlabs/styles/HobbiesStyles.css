@@ -97,6 +97,15 @@ body {
 .buts:nth-child(3) {
     color:#B38CF3;
 }
+.buts:hover {
+    color:#B38CF3;
+}
+.url a:hover {
+    color:#B38CF3;
+}
+.soc a:hover {
+    transform: scale(1.4);
+}
 .soc {
     display: flex;
     justify-content: center;

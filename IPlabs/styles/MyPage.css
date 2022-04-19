@@ -96,10 +96,20 @@ body {
 .buts:nth-child(1) {
     color:#B38CF3;
 }
+.buts:hover {
+    color:#B38CF3;
+}
+.url a:hover {
+    color:#B38CF3;
+}
+.soc a:hover {
+    transform: scale(1.4);
+}
 .soc {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 0.5s;
 }
 .social {
     display: inline-block;
