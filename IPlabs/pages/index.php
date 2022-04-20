@@ -10,7 +10,7 @@
 <body>
     <div class="fixed">
         <header id="header">
-            <a class="logo" href="#">Laboratories</a>
+            <a class="logo" href="#">My Page</a>
             <div class="burger"><img src="../IMG/menu.png"></div>
             <div class="link-container">
                 <div class="pages">
@@ -18,7 +18,7 @@
                     <a class="buts" href="../pages/Aboutme.php">About me</a>
                     <a class="buts" href="../pages/Hobbies.php">Hobbies</a>
                     <a class="buts" href="../pages/Gallery.php">Gallery</a>
-                    <a class="buts" href="../template/auth.php">Auth</a>
+                    <a class="buts" href="../template/profile.php">Profile</a>
                 </div>
                 <div class="soc">
                     <a class="social" target="blank" href="https://www.instagram.com/tomasaxuuu/"><img src="../IMG/inst.png" width="25" height="25"></a>

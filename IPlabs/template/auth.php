@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if (isset($_SESSION['user'])) {
+        header('Location: /profile.php');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,16 +34,27 @@
     </div>
     <main>
     <!-- Форма авторизации -->
-    <form action="" method="">
+    <form action="../inc/signin.php" method="post">
         <h1>Авторизация</h1>
         <label>Логин</label>
-        <input type="text" placeholder="Введите логин">
+        <input type="text" name="login" placeholder="Введите логин" style="color: white;">
         <label>Пароль</label>
-        <input type="password" placeholder="Введите пароль">
-        <button>Войти</button>
+        <input type="password" name="password" placeholder="Введите пароль" style="color: white;">
+        <button type="submit">Войти</button>
         <p>
         Нет аккаунта? <a href="./registr.php">Зарегистрируйтесь</a>
         </p>
+        <?php 
+            if (isset($_SESSION['message'])) {
+                echo '<p class="mes" style="border: 2px solid #B38CF3;
+                border-radius: 3px;
+                margin-top: 20px;
+                padding: 10px;
+                text-align: center;
+                font-weight: bold;"> ' . $_SESSION['message'] . ' </p>';
+            }
+            unset($_SESSION['message']);
+        ?>
     </form>
     </main>
 </body>
