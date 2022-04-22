@@ -16,6 +16,7 @@
     <div class="fixed">
         <header id="header">
             <a class="logo" href="#">Registration</a>
+            <div class="burger"><img src="../IMG/menu.png"></div>
             <div class="link-container">
                 <div class="pages">
                     <a class="buts" href="../index.html">Home</a>
@@ -35,7 +36,7 @@
     </div>
     <main>
         <!-- Форма регистрации -->
-        <form action="../inc/signup.php" method="post" enctype="multipart/form-data">
+        <form action="/inc/signup.php" method="post" enctype="multipart/form-data">
             <h1>Регистрация</h1>
             <label>ФИО</label>
             <input type="text" name="full_name" placeholder="Введите имя" style="color: white;">
@@ -55,12 +56,7 @@
             </p>
             <?php 
                 if (isset($_SESSION['message'])) {
-                    echo '<p class="mes" style="border: 2px solid #B38CF3;
-                    border-radius: 3px;
-                    margin-top: 20px;
-                    padding: 10px;
-                    text-align: center;
-                    font-weight: bold;"> ' . $_SESSION['message'] . ' </p>';
+                    echo '<p class="mes"> ' . $_SESSION['message'] . ' </p>';
                 }
                 unset($_SESSION['message']);
             ?>

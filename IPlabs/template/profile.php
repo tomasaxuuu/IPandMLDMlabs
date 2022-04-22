@@ -15,6 +15,7 @@
     <div class="fixed">
         <header id="header">
             <a class="logo" href="#">Profile</a>
+            <div class="burger"><img src="../IMG/menu.png"></div>
             <div class="link-container">
                 <div class="pages">
                 <a class="buts" href="../index.html">Home</a>
@@ -32,23 +33,16 @@
             </div>
         </header>
     </div>
-    <main style="padding: 115px 0 0 0;">
+    <main>
     <!-- Профиль -->
     <form>
-        <p style="margin-bottom:20px;
-        font-size:30px;
-        color: #B38CF3;">Ваш профиль:</p>
-        <img src="<?= $_SESSION['user']['avatar'] ?>" width="400" alt="">
-        <p style="margin: 10px 0;
-        text-align:center;
-        font-size:20px;"><?= $_SESSION['user']['full_name'] ?></p>
-        <a style="margin: 10px 0;
-        text-align:center;
-        font-size:20px;" href="#"><?= $_SESSION['user']['email'] ?></a>
-        <a style="padding-top:20px;
-        font-size:30px;
-        color: #B38CF3;
-        text-align:center;" href="../inc/exit.php">Выход</a>
+        <p class="first">Ваш профиль:</p>
+        <img src="<?= $_SESSION['user']['avatar'] ?>" alt="">
+        <p class="second"><?= $_SESSION['user']['full_name'] ?></p>
+        <a class="id" href="#">ID = <?= $_SESSION['user']['id'] ?></a>
+        <a class="email" href="#"><?= $_SESSION['user']['email'] ?></a>
+        <a class="sql" href="./sql.php">Таблица всех пользователей</a>
+        <a class="out" href="../inc/exit.php">Выход</a>
     </form>
     </main>
 </body>
