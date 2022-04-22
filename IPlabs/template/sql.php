@@ -58,7 +58,7 @@
                     <td class="data"><?=$user['login']?></td>
                     <td class="data"><?=$user['email']?></td>
                     <td class="data"><img src="<?=$user['avatar']?>" width="100" class="avatarimg" alt="Аватарка"></td>
-                    <td class="data"><a href="../inc/edit.php?id=<?=$user['id']?>"><img src="../IMG/edit.png" width="50" class="edel" alt="Редактировать"></a></td>
+                    <td class="data"><a href="./updatePage.php?id=<?=$user['id']?>"><img src="../IMG/edit.png" width="50" class="edel" alt="Редактировать"></a></td>
                     <td class="data"><a href="../inc/delete.php?id=<?=$user['id']?>"><img src="../IMG/delete.png" width="50" class="edel" alt="Удалить"></a></td>
                 </tr>
         </div>
