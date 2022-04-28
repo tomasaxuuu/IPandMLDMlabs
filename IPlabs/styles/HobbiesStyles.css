@@ -1,0 +1,237 @@
+@font-face {
+	font-family: 'Showcard Gothic';
+	src: url('../fonts/SHOWG.eot');
+	src: local('☺'), url('../fonts/SHOWG.woff') format('woff'), url('../fonts/SHOWG.ttf') format('truetype'), url('../fonts/SHOWG.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html,body{
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+    
+}
+input,button,textarea{font-family:inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+
+html {
+    background-image: url(../IMG/space5.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+body {
+    font-family: 'Showcard Gothic';
+}
+.fixed {
+    max-width: 1800px;
+    margin: 0 auto;
+}
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1 1 auto;
+    width: 100%;
+    height: 60px;
+    padding: 12px 0px 0px 40px;
+}
+.logo {
+    font-size: 28px;
+    color: #B38CF3;
+}
+.link-container {
+    display: flex;
+    justify-content: space-between;
+    width: 800px;
+}
+.pages{
+    display: flex;
+}
+.buts {
+    width: 94px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 38px;
+    color: white;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    font-size: 16px;
+}
+.buts:nth-child(3) {
+    color:#B38CF3;
+}
+.buts:hover {
+    color:#B38CF3;
+}
+.url a:hover {
+    color:#B38CF3;
+}
+.soc a:hover {
+    transform: scale(1.4);
+}
+.soc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.social {
+    display: inline-block;
+    margin-left: 10px;
+}
+.url {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    font-size: 24px;
+    color:white;
+    margin-right:40px;
+}
+.url a {
+    color:white;
+}
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 100px 40px 0px 40px;
+}
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.columns {
+    display: flex;
+    justify-content: center;
+    align-items: space-between;
+    margin: 30px 40px 50px 50px;
+    flex-direction: column;
+    width: 44%;
+}
+.imgs {
+    width: 704px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items:center;
+}
+.text-place{
+    padding-top: 100px;
+    display: flex;
+    font-size: 24px;
+    color:white;
+    text-align: justify;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: Showcard Gothic, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    line-height: 1.2;
+}
+.columns:nth-child(2) .text-place{
+    color:#B38CF3;
+}
+.burger{
+    display: none;
+    position: relative;
+    height: 25px;
+    width: 25px;
+}
+@media (max-width: 990px) {
+    .url {
+        display: none;
+    }
+    .social {
+        display: none;
+    }
+    .link-container {
+        display: flex;
+        justify-content: center;
+    }
+    .logo {
+        font-size: 20px;
+        width: 100%;
+    }
+    .imgs{
+        width: 500px;
+        margin-left: -53px;
+    }
+}
+@media (max-width: 775px) {
+    .imgs{
+        width: 500px;
+        margin-left: -93px;
+    }
+}
+
+@media (max-width: 590px) {
+   .link-container{
+       display: none;
+   }
+   .burger {
+       display: flex;
+       cursor: pointer;
+       margin-right: 40px;
+   }
+   .imgs {
+        width: 400px;
+        margin-left: -123px;
+    }
+    .text-place {
+        font-size: 15px;
+        width: 300px;
+        margin-left: -73px;
+    }
+}
+@media (max-width: 410px) {
+    .imgs {
+        width: 310px;
+        margin-left: -90px;
+    }
+    .text-place {
+        margin-left: -84px;
+    }
+}
+@media (max-width: 333px) {
+    .imgs {
+        width: 300px;
+    }
+    .text-place {
+        margin-left: -90px;
+    }
+}

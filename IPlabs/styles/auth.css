@@ -1,0 +1,239 @@
+@font-face {
+	font-family: 'Showcard Gothic';
+	src: url('../fonts/SHOWG.eot');
+	src: local('☺'), url('../fonts/SHOWG.woff') format('woff'), url('../fonts/SHOWG.ttf') format('truetype'), url('../fonts/SHOWG.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+*{
+	padding: 0;
+	margin: 0;
+    border: 0;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html,body{
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family:inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+
+html {
+    background-image: url(../IMG/space7.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+body {
+    font-family: 'Showcard Gothic';
+}
+.fixed {
+    max-width: 1800px;
+    margin: 0 auto;
+}
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1 1 auto;
+    width: 100%;
+    height: 60px;
+    padding: 12px 0px 0px 40px;
+}
+.logo {
+    font-size: 28px;
+    color: #B38CF3;
+}
+.link-container {
+    display: flex;
+    justify-content: space-between;
+    width: 800px;
+}
+.pages{
+    display: flex;
+}
+.buts {
+    width: 94px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 38px;
+    color: white;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    font-size: 16px;
+}
+.buts:last-child {
+    color:#B38CF3;
+}
+.buts:hover {
+    color:#B38CF3;
+}
+.url a:hover {
+    color:#B38CF3;
+}
+.soc a:hover {
+    transform: scale(1.4);
+}
+.soc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.social {
+    display: inline-block;
+    margin-left: 10px;
+}
+.url {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    font-size: 24px;
+    color:white;
+    margin-right:40px;
+}
+.url a {
+    color:white;
+}
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 315px 0px 0px 0px;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+form {
+    display: flex;
+    flex-direction: column;
+    color:#ffffff;
+}
+form h1 {
+    color:white;
+    font-size: 40px;
+    padding-bottom: 40px;
+}
+form button {
+    margin-top: 30px;
+    height: 25px;
+    background-color:#B38CF3;
+}
+label {
+    font-size: 15px;
+    text-align: center;
+}
+input {
+    font-size: 13px;
+    margin: 10px 0;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgb(255, 255, 255);
+}
+form p {
+    padding-top: 10px;
+    text-align: center;
+}
+form a {
+    text-decoration: none;
+    color:#f70000;
+}
+.mes {
+    border: 2px solid #B38CF3;
+    border-radius: 3px;
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+.burger{
+    display: none;
+    position: relative;
+    height: 25px;
+    width: 25px;
+}
+input::-webkit-input-placeholder {
+    color:rgb(255, 255, 255);
+ }
+input:-moz-placeholder {
+    color:rgb(255, 255, 255);
+ }
+input::-moz-placeholder {
+    color:rgb(255, 255, 255);
+ }
+input:-ms-input-placeholder {
+    color:rgb(255, 255, 255);
+}
+@media (max-width: 960px) {
+    .url {
+        display: none;
+    }
+    .social {
+        display: none;
+    }
+    .link-container {
+        display: flex;
+        justify-content: center;
+        margin-right: 20px;
+    }
+    .logo {
+        font-size: 20px;
+        width: 100%;
+    }
+    .text {
+        margin-top: -100px;
+        height: 30%;
+        width: 50%;
+    }
+}
+@media (max-width: 590px) {
+   .link-container{
+       display: none;
+   }
+   .burger {
+       display: flex;
+       cursor: pointer;
+       margin-right: 40px;
+   }
+   .text {
+       margin-top: -100px;
+       height: 50%;
+       width: 90%;
+   }
+}
+ @media (max-width: 490px) {
+    .text {
+       height: 30%;
+       width: 90%;
+    }
+}
