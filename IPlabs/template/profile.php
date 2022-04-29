@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require_once '../inc/connect.php';
     if (!isset($_SESSION['user'])) {
         header('Location: registr.php');
     }
@@ -33,14 +34,24 @@
             </div>
         </header>
     </div>
+    
     <main>
     <!-- Профиль -->
     <form>
+    <?php
+        $id = $_SESSION['user']['id'];
+        $query = mysqli_query($connect, "SELECT * FROM users WHERE id = '$id' ");
+        $query = mysqli_fetch_all($query);
+        foreach($query as $arr){
+        }
+    ?>
         <p class="first">Ваш профиль:</p>
-        <img src="<?= $_SESSION['user']['avatar'] ?>" alt="">
-        <p class="second"><?= $_SESSION['user']['full_name'] ?></p>
-        <a class="id" href="#">ID = <?= $_SESSION['user']['id'] ?></a>
-        <a class="email" href="#"><?= $_SESSION['user']['email'] ?></a>
+        <img src="<?= $arr[5] ?>" alt="">
+        <p class="second">Ваше Имя: <?= $arr[1] ?></p>
+        <a class="id" href="#">id: <?= $arr[0] ?></a>
+        <a class="email" href="#">Почта: <?= $arr[3] ?></a>
+        <a class="role" href="#">Ваша роль: <?= $arr[7] ?></a>
+        <a class="count1" href="#">Количество очков: <?= $arr[6] ?></a>
         <a class="sql" href="./sql.php">Таблица всех пользователей</a>
         <a class="out" href="../inc/exit.php">Выход</a>
     </form>

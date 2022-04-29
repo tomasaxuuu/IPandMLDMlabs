@@ -4,6 +4,9 @@ let ctx = cvs.getContext("2d");
 document.getElementById("butt1").onclick = function() {
     document.location.replace("Game.php");
 }
+document.getElementById("butt2").onclick = function() {
+    document.location.replace("../template/sql.php");
+}
 let bird = new Image();
 let bg = new Image();
 let fg = new Image();
@@ -67,6 +70,8 @@ function draw() {
                 document.querySelector(".main > canvas").remove();
                 document.getElementById("butt").style.display = "inline-block"; 
                 document.getElementById("butt1").style.display = "block";
+                document.getElementById("butt2").style.display = "block";
+                document.getElementById("count").style.display = "block";
                 document.getElementById("points").style.display = "inline-block";  
                 document.getElementById("points").value = points;  
             }

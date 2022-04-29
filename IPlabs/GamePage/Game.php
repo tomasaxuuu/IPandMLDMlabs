@@ -1,6 +1,6 @@
 <?php
     session_start();
-   
+    require_once '../inc/connect.php';
     if (!$_SESSION['user']) {
         header('Location: ../../template/auth.php');
     }
@@ -44,6 +44,15 @@
             <input type="hidden" name="score" id="points" value="<?= $_SESSION['user']['score'] ?>">
             <button id="butt" type="submit">Обновить результаты</button>
             <button id="butt1" type="button">Начать заново</button>
+            <button id="butt2" type="button">К таблице</button>
+            <?php
+            $idid = $_SESSION['user']['id'];
+            $list = mysqli_query($connect, "SELECT * FROM users WHERE id = '$idid' ");
+            $list = mysqli_fetch_all($list);
+            foreach($list as $li){
+            }
+            ?>
+            <p class="count" id="count">Ваш предыдущий результат: <?= $li[6] ?></p>
     </form>
     </main>
     <script src="./scripts/game.js"></script>

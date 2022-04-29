@@ -9,7 +9,7 @@
     $email = $_POST['email'];
     $password = $_POST['password'];
     $password_two = $_POST['password_two'];
-
+    
     if($password === $password_two) {
         // $_FILES['avatar']['name']
         $path = '../uploads/' . time() . $_FILES['avatar']['name'];

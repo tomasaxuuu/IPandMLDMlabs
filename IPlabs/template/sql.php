@@ -39,29 +39,67 @@
             <h1>Список пользователей</h1>
             <table>
                 <tr>
-                    <td>id</td>
+                    <?php
+                        if($_SESSION['user']['role'] == "admin") {
+                            ?>
+                            <td>id</td>
+                            <?php
+                        }
+                        ?>
                     <td>ФИО</td>
-                    <td>Логин</td>
+                    <?php
+                        if($_SESSION['user']['role'] == "admin") {
+                            ?>
+                            <td>Логин</td>
+                            <?php
+                        }
+                        ?>
                     <td>Почта</td>
                     <td>Аватар</td>
                     <td>Очки</td>
-                    <td>Редактировать</td>
-                    <td>Удалить</td>
+                    <td>Роль</td>
+                    <?php
+                        if($_SESSION['user']['role'] == "admin") {
+                            ?>
+                            <td>Редактировать</td>
+                            <td>Удалить</td>
+                            <?php
+                        }
+                        ?>
                 </tr>
             <?php
             $query = "SELECT * FROM `users`";
             $res = mysqli_query($connect, $query);
-            while( ($user = mysqli_fetch_array($res))) {
+            while(($user = mysqli_fetch_array($res))) {
                 ?>
                 <tr>
-                    <td class="data"><?=$user['id']?></td>
+                <?php
+                    if($_SESSION['user']['role'] == "admin") {
+                            ?>
+                            <td class="data"><?=$user['id']?></td>
+                            <?php
+                    }
+                    ?>
                     <td class="data"><?=$user['full_name']?></td>
-                    <td class="data"><?=$user['login']?></td>
+                    <?php
+                    if($_SESSION['user']['role'] == "admin") {
+                            ?>
+                            <td class="data"><?=$user['login']?></td>
+                            <?php
+                    }
+                    ?>
                     <td class="data"><?=$user['email']?></td>
                     <td class="data"><img src="<?=$user['avatar']?>" width="100" class="avatarimg" alt="Аватарка"></td>
                     <td class="data"><?=$user['score']?></td>
-                    <td class="data"><a href="./updatePage.php?id=<?=$user['id']?>"><img src="../IMG/edit.png" width="50" class="edel" alt="Редактировать"></a></td>
-                    <td class="data"><a href="../inc/delete.php?id=<?=$user['id']?>"><img src="../IMG/delete.png" width="50" class="edel" alt="Удалить"></a></td>
+                    <td class="data"><?=$user['role']?></td>
+                    <?php
+                        if($_SESSION['user']['role'] == "admin") {
+                            ?>
+                            <td class="data"><a href="./updatePage.php?id=<?=$user['id']?>"><img src="../IMG/edit.png" width="50" class="edel" alt="Редактировать"></a></td>
+                            <td class="data"><a href="../inc/delete.php?id=<?=$user['id']?>"><img src="../IMG/delete.png" width="50" class="edel" alt="Удалить"></a></td>
+                             <?php
+                        }
+                    ?>
                 </tr>
         </div>
         <?php

@@ -199,6 +199,25 @@ main button {
 #butt1 {
     display: none;
 }
+#butt2 {
+    display: none;
+}
+#count {
+    display: none;
+}
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+form p {
+    display: inline-block;
+    color: white;
+    margin-top: 50px;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 @media (max-width: 960px) {
     .url {
         display: none;
