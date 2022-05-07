@@ -39,7 +39,7 @@
         $matrix2 = $matrix;
         $matrix1 = '';
         $matrix4 = '';
-        $INF = 99999;
+        // $INF = 99;
         //вывод введенной матрицы смежности
         for ($i = 0; $i < count($matrix); $i++) {
             for ($j = 0; $j < count($matrix); $j++) {
@@ -49,46 +49,36 @@
         }
         $_SESSION['matrix'] = "Введенная матрица:<br>" . $matrix1. "<br>Количество вершин матрицы:<br>" . count($matrix). "<br>";
 
-        // замена всех 0 на INF, т.к нет пути в этом направлении
-        for ($i = 0; $i < count($matrix2); $i++) {
-            for ($j = 0; $j < count($matrix2[$i]); $j++) {
-                if($matrix2[$i][$j] === '0') {
-                    $matrix2[$i][$j] = $INF;
-                    if($matrix2[$i][$j] === $INF) {
-                        $matrix2[$i][$j] = "INF";
-                    }
-                }
-            }
-        }
-        
+        $count = 0;
         for ($k = 0; $k < count($matrix); $k++) {
             for ($i = 0; $i < count($matrix); $i++) {
                 for ($j = 0; $j < count($matrix); $j++) {
-                    $end[$i][$j] = min($matrix[$i][$j], ($matrix[$i][$k] + $matrix[$k][$j]));
-                    if($end[$i][$j] === '0') {
-                        $end[$i][$j] = $INF;
-                        if($end[$i][$j] === $INF) {
-                            $end[$i][$j] = "INF";
+                    $count++;
+                    if ($matrix[$i][$k] && $matrix[$k][$j] && $i!=$j) {
+                        if ($matrix[$i][$k] + $matrix[$k][$j] < $matrix[$i][$j] || $matrix[$i][$j] == 0) {
+                            $matrix[$i][$j] = $matrix[$i][$k] + $matrix[$k][$j];
                         }
                     }
                 }
             }
         }
 
-
-        for ($i = 0; $i < count($end); $i++) {
-            for ($j = 0; $j < count($end); $j++) {
-                $matrix4 = $matrix4.$end[$i][$j]." ";
+        for ($i = 0; $i < count($matrix); $i++) {
+            for ($j = 0; $j < count($matrix); $j++) {
+                if($i != $j and $matrix[$i][$j] == 0) {
+                    $matrix[$i][$j] = "INF";
+                }
+                $matrix4 = $matrix4.$matrix[$i][$j]." ";
             }
             $matrix4 = $matrix4."<br>";
         }
-        $_SESSION['final'] = "Матрица конечных путей :<br>" . $matrix4. "<br>";
+
+        
+        $_SESSION['final'] = "Матрица конечных путей :<br>" . $matrix4. "<br>Количество шагов выполнения алгоритма: <br>" . $count . "<br>";
         header('Location: ../index.php');
     } 
     else {
         header('Location: ../index.php');
     }
 
-
 ?>
-
