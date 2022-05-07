@@ -14,25 +14,38 @@
 <body>
     <div class="wrap">
         <div class="main">
-            <h1 class="name">Четвертая лабораторная работа</h1>
+            <h3 class="name">Четвертая лабораторная работа:<br>
+                Нахождение пути между каждой парой вершин в ориентированном графе
+            </h3>
             <form method="post" action="./scripts/func.php" class="forms" enctype="multipart/form-data">
-            <textarea class="textar" name="array" placeholder="Введите элементы матрицы смежности через пробел"></textarea>
-                <input class="matrix" type="text" name="firstTop" autocomplete="off" placeholder="Введите начальную вершину">
-                <input class="matrix" type="text" name="secondTop" autocomplete="off" placeholder="Введите конечную вершину">
-                
+                <textarea class="textar" name="array" placeholder="Введите элементы матрицы смежности через пробел"></textarea>
+                <input class="matrix" type="text" name="firstTop" autocomplete="off" placeholder="Введите начальную вершину"> 
+                <!-- <input class="matrix" type="text" name="secondTop" autocomplete="off" placeholder="Введите конечную вершину"> -->
                 <input class="sub" type="submit" value="Подтвердить">
             </form>
+            
         </div>
         <?php 
             if (isset($_SESSION['text']) && !empty($_SESSION['text'])) {
-                echo '<p> ' . $_SESSION['text'] . ' </p>';
+                echo '<p class="mes"> ' . $_SESSION['text'] . ' </p>';
             }
             unset($_SESSION['text']);
-            if (isset($_SESSION['calc']) && !empty($_SESSION['calc'])) {
-                echo '<p> ' . $_SESSION['calc'] . ' </p>';
+            if (isset($_SESSION['matrix']) && !empty($_SESSION['matrix'])) {
+                echo '<p class="mes"> ' . $_SESSION['matrix'] . ' </p>';
             }
-            unset($_SESSION['calc']);
+            unset($_SESSION['matrix']);
+            // if (isset($_SESSION['inf']) && !empty($_SESSION['inf'])) {
+            //     echo '<p class="mes"> ' . $_SESSION['inf'] . ' </p>';
+            // }
+            // unset($_SESSION['inf']);
+            if (isset($_SESSION['final']) && !empty($_SESSION['final'])) {
+                echo '<p class="mes"> ' . $_SESSION['final'] . ' </p>';
+            }
+            unset($_SESSION['final']);
         ?> 
     </div>
+    <!-- <div class="exit">
+    <a class="labs" href="../../pages/Labs.php"><button class="laboratories" type="submit">Back</button></a>
+    </div> -->
 </body>
 </html>
