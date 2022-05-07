@@ -18,8 +18,8 @@
                 Нахождение пути между каждой парой вершин в ориентированном графе
             </h3>
             <form method="post" action="./scripts/func.php" class="forms" enctype="multipart/form-data">
+                <input class="matrix" type="text" name="firstTop" autocomplete="off" placeholder="Введите количество вершин графа"> 
                 <textarea class="textar" name="array" placeholder="Введите элементы матрицы смежности через пробел"></textarea>
-                <input class="matrix" type="text" name="firstTop" autocomplete="off" placeholder="Введите начальную вершину"> 
                 <!-- <input class="matrix" type="text" name="secondTop" autocomplete="off" placeholder="Введите конечную вершину"> -->
                 <input class="sub" type="submit" value="Подтвердить">
             </form>
@@ -34,18 +34,11 @@
                 echo '<p class="mes"> ' . $_SESSION['matrix'] . ' </p>';
             }
             unset($_SESSION['matrix']);
-            // if (isset($_SESSION['inf']) && !empty($_SESSION['inf'])) {
-            //     echo '<p class="mes"> ' . $_SESSION['inf'] . ' </p>';
-            // }
-            // unset($_SESSION['inf']);
             if (isset($_SESSION['final']) && !empty($_SESSION['final'])) {
                 echo '<p class="mes"> ' . $_SESSION['final'] . ' </p>';
             }
             unset($_SESSION['final']);
         ?> 
     </div>
-    <!-- <div class="exit">
-    <a class="labs" href="../../pages/Labs.php"><button class="laboratories" type="submit">Back</button></a>
-    </div> -->
 </body>
 </html>

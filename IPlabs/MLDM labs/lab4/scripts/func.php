@@ -17,18 +17,18 @@
             $_SESSION['text'] = "Не должно быть ни одного пустого поля";
             return false;
         }
-        for($i = 0; $i < count($matrix); $i++){
+        for ($i = 0; $i < count($matrix); $i++){
             if (count($matrix) != count($matrix[$i])) {
                 $_SESSION['text'] = "Матрица должна быть квадратной!";
                 return false;
             }
         }
-        if(!is_numeric($startTop)) {
-            $_SESSION['text'] = "Вершины должны быть цифрами";
+        if (!is_numeric($startTop)) {
+            $_SESSION['text'] = "Кол-во вершин должно состоять из цифр";
             return false;
         }
-        if ($startTop > count($matrix)) {
-            $_SESSION['text'] = "Вершины " . $startTop . " нет в графе!";
+        if ($startTop != count($matrix)) {
+            $_SESSION['text'] = "Число вершин не сходится с графом";
             return false;
         }
         return true;
@@ -37,6 +37,8 @@
     if(validation($matrix, $startTop)) {
         $startTop = trim(($_POST['firstTop']), " ");
         $matrix2 = $matrix;
+        $matrix1 = '';
+        $matrix4 = '';
         $INF = 99999;
         //вывод введенной матрицы смежности
         for ($i = 0; $i < count($matrix); $i++) {
@@ -51,8 +53,8 @@
         for ($i = 0; $i < count($matrix2); $i++) {
             for ($j = 0; $j < count($matrix2[$i]); $j++) {
                 if($matrix2[$i][$j] === '0') {
-                    $matrix2[$i][$j] = INF;
-                    if($matrix2[$i][$j] === INF) {
+                    $matrix2[$i][$j] = $INF;
+                    if($matrix2[$i][$j] === $INF) {
                         $matrix2[$i][$j] = "INF";
                     }
                 }
@@ -64,8 +66,8 @@
                 for ($j = 0; $j < count($matrix); $j++) {
                     $end[$i][$j] = min($matrix[$i][$j], ($matrix[$i][$k] + $matrix[$k][$j]));
                     if($end[$i][$j] === '0') {
-                        $end[$i][$j] = INF;
-                        if($end[$i][$j] === INF) {
+                        $end[$i][$j] = $INF;
+                        if($end[$i][$j] === $INF) {
                             $end[$i][$j] = "INF";
                         }
                     }
