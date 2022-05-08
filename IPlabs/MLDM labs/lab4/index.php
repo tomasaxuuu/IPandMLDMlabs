@@ -20,7 +20,7 @@
             <form method="post" action="./scripts/func.php" class="forms" enctype="multipart/form-data">
                 <input class="matrix" type="text" name="firstTop" autocomplete="off" placeholder="Введите количество вершин графа"> 
                 <textarea class="textar" name="array" placeholder="Введите элементы матрицы смежности через пробел"></textarea>
-                <!-- <input class="matrix" type="text" name="secondTop" autocomplete="off" placeholder="Введите конечную вершину"> -->
+                    <!-- <input class="matrix" type="text" name="secondTop" autocomplete="off" placeholder="Введите конечную вершину"> -->
                 <input class="sub" type="submit" value="Подтвердить">
             </form>
             
@@ -38,6 +38,10 @@
                 echo '<p class="mes"> ' . $_SESSION['final'] . ' </p>';
             }
             unset($_SESSION['final']);
+            if (isset($_SESSION['let']) && !empty($_SESSION['let'])) {
+                echo '<p class="mes"> ' . $_SESSION['let'] . ' </p>';
+            }
+            unset($_SESSION['let']);
         ?> 
     </div>
 </body>
