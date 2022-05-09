@@ -11,7 +11,7 @@
 a:focus,a:active{outline: none;}
 nav,footer,header,aside{display: block;}
 body, html {
-    background-color:rgb(19, 18, 18);
+    background-color:rgb(255, 255, 255);
     height: 100%;
     margin: 0;
     padding: 0;
@@ -43,45 +43,29 @@ body, html {
 }
 .name {
     text-align: center;
-    color:rgb(255, 255, 255);
     font-size: 30px;
     font-family: Arial, Helvetica, sans-serif;
 }
 .sub {
-    background-color:rgb(255, 255, 255);
+    background-color:rgb(214, 235, 31);
     height: 40px;
     min-height: 30px;
     width: 150px;
     border-radius: 20px;
-    border-color: rgb(19, 18, 18);
-    color: rgb(19, 18, 18);
+    border-color: black;
+    color: black;
     cursor: pointer;
     margin-top: 10px;
     margin-bottom: 5px;
     padding: 3px 0;
 }
-.matrix {
-    font-size: 15px;
-    font-family: Arial;
-    background-color:rgb(19, 18, 18);
-    border-radius: 20px;
-    padding: 10px;
-    color: rgb(255, 255, 255);
-    border-color:rgb(255, 255, 255);
-    overflow: hidden;
-    height: 50px;
-    min-height: 60px;
-    width: 520px;
-    margin-bottom: 15px;
-  }
   .textar {
     font-size: 15px;
     font-family: Arial;
-    color: rgb(255, 255, 255);
-    background-color:rgb(19, 18, 18);
+    background-color:rgb(214, 235, 31);
     border-radius: 20px;
     text-align: center;
-    border-color:rgb(255, 255, 255);
+    border-color:rgb(0, 0, 0);
     padding: 10px;
     resize: none;
     overflow: hidden;
@@ -89,11 +73,10 @@ body, html {
     height: 100px;
     min-height: 140px;
     width: 520px;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
   }
   .mes {
-    border: 2px solid #ffffff;
-    color:rgb(255, 255, 255);
+    border: 2px solid #000000;
     border-radius: 3px;
     margin-top: -5px;
     padding: 5px;
@@ -101,29 +84,29 @@ body, html {
     font-weight: bold;
 }
 .matrix::-webkit-input-placeholder {
-    color:rgb(255, 255, 255);
+    color:rgb(0, 0, 0);
  }
  .matrix:-moz-placeholder {
-    color:rgb(255, 255, 255);
+    color:rgb(0, 0, 0);
  }
  .matrix::-moz-placeholder {
-    color:rgb(255, 255, 255);
+    color:rgb(0, 0, 0);
  }
  .matrix:-ms-input-placeholder {
-    color:rgb(255, 255, 255);
+    color:rgb(0, 0, 0);
  }
  
  .textar::-webkit-input-placeholder {
-    color:rgb(255, 255, 255);
+    color:rgb(0, 0, 0);
  }
  .textar:-moz-placeholder {
-    color:rgb(255, 255, 255);
+    color:rgb(0, 0, 0);
  }
  .textar::-moz-placeholder {
-    color:rgb(255, 255, 255);
+    color:rgb(0, 0, 0);
  }
  .textar:-ms-input-placeholder {
-    color:rgb(255, 255, 255);
+    color:rgb(0, 0, 0);
  }
   .exit {
       display: flex;
