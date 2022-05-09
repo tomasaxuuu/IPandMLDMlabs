@@ -18,9 +18,8 @@
                 Нахождение пути между каждой парой вершин в ориентированном графе
             </h3>
             <form method="post" action="./scripts/func.php" class="forms" enctype="multipart/form-data">
-                <input class="matrix" type="text" name="firstTop" autocomplete="off" placeholder="Введите количество вершин графа"> 
-                <textarea class="textar" name="array" placeholder="Введите элементы матрицы смежности через пробел"></textarea>
-                    <!-- <input class="matrix" type="text" name="secondTop" autocomplete="off" placeholder="Введите конечную вершину"> -->
+                <input class="matrix" type="text" name="firstTop" autocomplete="off" placeholder="Введите количество вершин вашего графа"> 
+                <textarea class="textar" name="array" placeholder="Введите элементы матрицы смежности через пробел (если путь отсутствует, впишите 0)"></textarea>
                 <input class="sub" type="submit" value="Подтвердить">
             </form>
             
