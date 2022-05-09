@@ -45,6 +45,9 @@
         
         for ($i = 0; $i < count($matrix); $i++) {
             for ($j = 0; $j < count($matrix); $j++) {
+                if($matrix[$i][$j] != 1 && $i != $j && $matrix[$i][$j] != 0) {
+                    $matrix[$i][$j] = 1;
+                }
                 if ($i == $j) {
                     $matrix[$i][$j] = 0;
                 }

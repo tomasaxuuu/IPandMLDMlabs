@@ -21,6 +21,11 @@
                 <input class="matrix" type="text" name="firstTop" autocomplete="off" placeholder="Введите количество вершин вашего графа"> 
                 <textarea class="textar" name="array" placeholder="Введите элементы матрицы смежности через пробел (если путь отсутствует, впишите 0)"></textarea>
                 <input class="sub" type="submit" value="Подтвердить">
+                <p class="example">Пример ввода:<br>
+                   0 9 2<br>
+                   1 0 4<br>
+                   2 4 0<br>
+                </p>
             </form>
             
         </div>
@@ -30,15 +35,15 @@
             }
             unset($_SESSION['text']);
             if (isset($_SESSION['matrix']) && !empty($_SESSION['matrix'])) {
-                echo '<p class="mes"> ' . $_SESSION['matrix'] . ' </p>';
+                echo '<p class="mes1"> ' . $_SESSION['matrix'] . ' </p>';
             }
             unset($_SESSION['matrix']);
             if (isset($_SESSION['final']) && !empty($_SESSION['final'])) {
-                echo '<p class="mes"> ' . $_SESSION['final'] . ' </p>';
+                echo '<p class="mes2"> ' . $_SESSION['final'] . ' </p>';
             }
             unset($_SESSION['final']);
             if (isset($_SESSION['let']) && !empty($_SESSION['let'])) {
-                echo '<p class="mes"> ' . $_SESSION['let'] . ' </p>';
+                echo '<p class="mes3"> ' . $_SESSION['let'] . ' </p>';
             }
             unset($_SESSION['let']);
         ?> 

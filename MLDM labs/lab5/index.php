@@ -20,6 +20,13 @@
             <form method="post" action="./scripts/func.php" class="forms" enctype="multipart/form-data">
                 <textarea class="textar" name="array" placeholder="Введите элементы матрицы смежности через пробел (если путь отсутствует, впишите 0)"></textarea>
                 <input class="sub" type="submit" value="Подтвердить">
+                <p class="example">Пример ввода:<br>
+                    0 1 1 0 1<br>
+                    0 0 1 0 0<br>
+                    0 0 0 0 1<br>
+                    0 1 1 0 1<br>
+                    0 0 0 0 0<br>
+                </p>
             </form>
             
         </div>
@@ -29,11 +36,11 @@
             }
             unset($_SESSION['text']);
             if (isset($_SESSION['matrix']) && !empty($_SESSION['matrix'])) {
-                echo '<p class="mes"> ' . $_SESSION['matrix'] . ' </p>';
+                echo '<p class="mes1"> ' . $_SESSION['matrix'] . ' </p>';
             }
             unset($_SESSION['matrix']);
             if (isset($_SESSION['final']) && !empty($_SESSION['final'])) {
-                echo '<p class="mes"> ' . $_SESSION['final'] . ' </p>';
+                echo '<p class="mes2"> ' . $_SESSION['final'] . ' </p>';
             }
             unset($_SESSION['final']);
         ?> 
