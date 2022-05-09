@@ -29,6 +29,10 @@
                     $_SESSION['text'] = "На главной диагонали должны быть нули!";
                     return false;
                 }
+                if(!is_numeric($matrix[$i][$j])) {
+                    $_SESSION['text'] = "Матрица должна состоять из цифр!";
+                    return false;
+                }
             }
         }
         if (!is_numeric($points)) {
