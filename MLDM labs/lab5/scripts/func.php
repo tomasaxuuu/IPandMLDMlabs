@@ -2,10 +2,9 @@
     session_start();
     
     // считывание матрицы смежности && преобразование строки в массив
-    $matrix = preg_split('/[\n\r]+/', $_POST['array']);
+    $matrix = preg_split('/[\n]/', $_POST['array']);
     for ($i = 0; $i < count($matrix); $i++) {
         $matrix[$i] = trim($matrix[$i]);
-        $matrix[$i] = preg_replace('/\s+/', ' ', $matrix[$i]);
         $matrix[$i] = explode(" ", $matrix[$i]);
     }
 
@@ -48,7 +47,7 @@
                 if($matrix[$i][$j] != 1 && $i != $j && $matrix[$i][$j] != 0) {
                     $matrix[$i][$j] = 1;
                 }
-                if ($i == $j) {
+                if ($i == $j && $matrix[$i][$j] == 1) {
                     $matrix[$i][$j] = 0;
                 }
             }
@@ -58,8 +57,12 @@
         for ($k = 0; $k < count($matrix); $k++) {
             for ($i = 0; $i < count($matrix); $i++) {
                 for ($j = 0; $j < count($matrix); $j++) {
-                    $matrix[$i][$j] = ($matrix[$i][$j] || ($matrix[$i][$k] && $matrix[$k][$j]));
-                    if ($matrix[$i][$j] == 0) {
+                    if ($matrix[$i][$k] && $matrix[$k][$j] && $i!=$j) {
+                        if (($matrix[$i][$k] + $matrix[$k][$j] < $matrix[$i][$j]) || $matrix[$i][$j] == 0) {
+                            $matrix[$i][$j] = 1;
+                        }
+                    }
+                    if ($matrix[$i][$j] != 1) {
                         $matrix[$i][$j] = 0;
                     }
                 }
