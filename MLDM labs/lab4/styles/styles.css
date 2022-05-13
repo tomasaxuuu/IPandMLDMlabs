@@ -80,7 +80,7 @@ body, html {
     color: rgb(255, 255, 255);
     background-color:rgb(19, 18, 18);
     border-radius: 20px;
-    text-align: center;
+    text-align: left;
     border-color:rgb(255, 255, 255);
     padding: 10px;
     resize: none;

@@ -2,19 +2,20 @@
     session_start();
     
     // считывание матрицы смежности && преобразование строки в массив
-    $matrix = preg_split('/[\n]/', $_POST['array']);
+    $matrix = preg_split('/[\r\n]+/', $_POST['array']);
     for ($i = 0; $i < count($matrix); $i++) {
         $matrix[$i] = trim($matrix[$i]);
         $matrix[$i] = explode(" ", $matrix[$i]);
     }
     
     // считывание кол-ва вершин графа
-    $points = trim(($_POST['firstTop']), " ");
-
+    $start = (int)$_POST['first'] - 1;
+    $last = (int)$_POST['last'] - 1;
+    
     //функция валидации
-    function validation($matrix, $points) {
+    function validation($matrix, $start, $last) {
         $_SESSION['text'] = "";
-        if(strlen($points) == 0 or count($matrix) == 0) {
+        if(strlen($start) == 0 or count($matrix) == 0 or strlen($last) == 0) {
             $_SESSION['text'] = "Не должно быть ни одного пустого поля!";
             return false;
         }
@@ -34,81 +35,86 @@
                 }
             }
         }
-        if (!is_numeric($points)) {
+        if (!is_numeric($start)) {
             $_SESSION['text'] = "Кол-во вершин должно состоять из цифр!";
             return false;
         }
-        if ($points != count($matrix)) {
-            $_SESSION['text'] = "Число вершин не сходится с графом!";
+        if (!is_numeric($last)) {
+            $_SESSION['text'] = "Кол-во вершин должно состоять из цифр!";
             return false;
         }
         return true;
     }
     
-    if(validation($matrix, $points)) {
-        $input = ''; // для вывода введенной матрицы
-        $path = ''; // хранение конечных путей
-        $count = 0; // переменная для подсчета всех шагов выполнения алгоритма
-        $prev = array(); // пустой массив маршрутов
-        $outPath = ''; // для вывода маршрутов
-
+    if(validation($matrix, $start, $last)) {
+        $matrix2 = $matrix;
+        $matrix1 = '';
+        $matrix4 = '';
+        for ($i = 0; $i < count($matrix); $i++) {
+            for ($j = 0; $j < count($matrix); $j++) {
+                if($i == $j) {
+                    $R[$i][$j] = -1;
+                } else {
+                $R[$i][$j] = $j;
+                }
+            }
+            
+        }
         //вывод введенной матрицы смежности
         for ($i = 0; $i < count($matrix); $i++) {
             for ($j = 0; $j < count($matrix); $j++) {
-                $input = $input.$matrix[$i][$j]." ";
+                $matrix1 = $matrix1.$matrix[$i][$j]." ";
             }
-            $input = $input."<br>";
+            $matrix1 = $matrix1."<br>";
         }
-    
-        // инициалиацзия массива маршрутов от 1 до последней вершины
-        for ($i = 0; $i < count($matrix); $i++) {
-            for ($j = 0; $j < count($matrix); $j++) {
-                $prev[$i][$j] = $i + 1;
-            }
-            $prev[$i][$j] = -1;
-        }
-
+        $_SESSION['matrix'] = "Введенная матрица:<br>" . $matrix1. "<br>Количество вершин матрицы:<br>" . count($matrix). "<br>";
+        $path = array();
+        $prev = array();
+        $matrix5 = '';
+        $m = '';
         //алгорит Флойда-Уоршелла для нахождения минимального пути между каждой парой элементов
+        $count = 0; // переменная для подсчета всех шагов выполнения алгоритма
         for ($k = 0; $k < count($matrix); $k++) {
             for ($i = 0; $i < count($matrix); $i++) {
                 for ($j = 0; $j < count($matrix); $j++) {
                     $count++;
                     if ($matrix[$i][$k] && $matrix[$k][$j] && $i != $j) {
                         if ($matrix[$i][$k] + $matrix[$k][$j] < $matrix[$i][$j] || $matrix[$i][$j] == 0) {
-                            $matrix[$i][$j] = $matrix[$i][$k] + $matrix[$k][$j]; // конечные пути
-                            $prev[$i][$j] = $prev[$k][$j]; // заносим в массив маршрутов сами маршруты       
+                            $matrix[$i][$j] = $matrix[$i][$k] + $matrix[$k][$j];
+                            $R[$i][$j] = $R[$i][$k];      
                         }
                     }
                 }
             }
         }
-
+        array_push($path, $start + 1);
+        if ($R != -1) {
+            while ($start != $last) {
+               
+                $start = $R[$start][$last];
+                array_push($path, $start + 1);
+            }
+            
+        }   
+        
         // замена всех 0 не находящихся на главной диагонали на бесконечность (INF)
         for ($i = 0; $i < count($matrix); $i++) {
             for ($j = 0; $j < count($matrix); $j++) {
                 if($i != $j and $matrix[$i][$j] == 0) {
-                    $matrix[$i][$j] = "INF"; // отсутствие пути
+                    $matrix[$i][$j] = "INF";
                 }
-                $path = $path.$matrix[$i][$j]." ";
+                $matrix4 = $matrix4.$matrix[$i][$j]." ";
             }
-            $path = $path."<br>";
+            $matrix4 = $matrix4."<br>";
         }
-
-        // вывод всех маршрутов
-        for ($i = 0; $i < count($prev); $i++) {
-            for ($j = 0; $j < count($prev); $j++) {
-                if($i == $j) {
-                    $prev[$i][$j] = "INF"; // отсутствие маршрута
-                }
-                $outPath = $outPath.$prev[$i][$j]." ";
-            }
-            $outPath = $outPath."<br>";
+        $q = '';
+        for ($i = 0; $i < count($path); $i++) {
+            $q[$i] = $path[$i];
+            
+            $_SESSION['let'] = "Маршрут от стартовой до конечной вершины:<br>". $q . "";
         }
+        $_SESSION['final'] = "Матрица конечных путей :<br>" . $matrix4. "<br>Количество шагов выполнения алгоритма: <br>" . $count . "<br>";
         
-        $_SESSION['matrix'] = "Введенная матрица:<br>" . $input. "<br>Количество вершин матрицы:<br>" . count($matrix). "<br>";
-        $_SESSION['final'] = "Матрица конечных путей:<br>" . $path. "<br>Количество шагов выполнения алгоритма:<br>" . $count . "<br>";
-        $_SESSION['let'] = "Матрица всех маршрутов из 1-ой вершины в последнюю<br> по алгоритму Флойда - Уоршелла:<br>" . $outPath. "";
-
         header('Location: ../index.php');
     } 
     else {
