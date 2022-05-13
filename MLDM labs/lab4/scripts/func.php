@@ -39,7 +39,7 @@
             $_SESSION['text'] = "Номер вершины не совпадает с количеством вершин";
             return false;
         }
-        if ($start == 0 or $last == 0) {
+        if ($start == 0 or $last == 0 or $start < 0 or $last < 0) {
             $_SESSION['text'] = "Номер вершины не совпадает с количеством вершин";
             return false;
         }
