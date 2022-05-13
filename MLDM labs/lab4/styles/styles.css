@@ -95,25 +95,17 @@ body, html {
     border: 2px solid #ffffff;
     border-radius: 3px;
     color:white;
-    margin-top: 70px;
+    margin-top: 170px;
     padding: 5px;
     text-align: center;
     font-weight: bold;
 }
-.mes1 {
-    border: 2px solid #ffffff;
-    border-radius: 3px;
-    color:white;
-    margin-top: 50px;
-    padding: 5px;
-    text-align: center;
-    font-weight: bold;
-}
+
 .mes2 {
     border: 2px solid #ffffff;
     border-radius: 3px;
     color:white;
-    margin-top: 0px;
+    margin-top: 130px;
     padding: 5px;
     text-align: center;
     font-weight: bold;

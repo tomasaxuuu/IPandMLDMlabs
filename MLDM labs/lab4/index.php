@@ -34,10 +34,6 @@
                 echo '<p class="mes"> ' . $_SESSION['text'] . ' </p>';
             }
             unset($_SESSION['text']);
-            if (isset($_SESSION['matrix']) && !empty($_SESSION['matrix'])) {
-                echo '<p class="mes1"> ' . $_SESSION['matrix'] . ' </p>';
-            }
-            unset($_SESSION['matrix']);
             if (isset($_SESSION['final']) && !empty($_SESSION['final'])) {
                 echo '<p class="mes2"> ' . $_SESSION['final'] . ' </p>';
             }
