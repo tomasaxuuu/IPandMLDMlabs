@@ -59,7 +59,6 @@
         $last = (int)$_POST['last'] - 1; // конечная вершина
         $matrixOut = ''; // для вывода матрицы смежности
         $path = array(); // массив маршрутных вершин
-        $finalPath= ''; // для вывода маршрута
         $count = 0; // переменная для подсчета всех шагов выполнения алгоритма
 
         // инициализация массива
@@ -110,11 +109,10 @@
 
         //вывод пути
         for ($i = 0; $i < count($path); $i++) {
-            $finalPath[$i] = $path[$i];
-            $_SESSION['path'] = "Маршрут из " . $finalPath[0]. " вершины до " . $finalPath[strlen($finalPath) - 1] .":<br>". $finalPath . "";
+            $_SESSION['path'] = "Маршрут из " . $path[0]. " вершины до " . $path[count($path) - 1] . ":<br>" . implode(' - ', $path) . "";
         }
 
-        $_SESSION['outMatrix'] = "Матрица конечных путей :<br>" . $matrixOut. "<br>Количество шагов выполнения алгоритма: <br>" . $count . "<br>";
+        $_SESSION['outMatrix'] = "Матрица конечных путей :<br>" . $matrixOut . "<br>Количество шагов выполнения алгоритма: <br>" . $count . "<br>";
         
         header('Location: ../index.php');
     } 
