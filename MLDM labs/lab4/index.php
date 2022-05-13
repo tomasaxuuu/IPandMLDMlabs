@@ -22,9 +22,10 @@
                 <input class="matrix" type="text" name="last" autocomplete="off" placeholder="Введите конечную вершину"> 
                 <input class="sub" type="submit" value="Подтвердить">
                 <p class="example">Пример ввода:<br>
-                   0 9 2<br>
-                   1 0 4<br>
-                   2 4 0<br>
+                0 3 0 7<br>
+                8 0 2 0<br>
+                5 0 0 1<br>
+                2 0 0 0<br>
                 </p>
             </form>
         </div>
