@@ -15,7 +15,6 @@
     <div class="wrap">
         <div class="main">
             <h3 class="name">Четвертая лабораторная работа:<br>
-                Нахождение пути между каждой парой вершин в ориентированном графе
             </h3>
             <form method="post" action="./scripts/func.php" class="forms" enctype="multipart/form-data">
                 <textarea class="textar" name="array" placeholder="Введите элементы матрицы смежности через пробел (если путь отсутствует, впишите 0)."></textarea>
@@ -30,18 +29,22 @@
             </form>
         </div>
         <?php 
-            if (isset($_SESSION['text']) && !empty($_SESSION['text'])) {
+            if (isset($_SESSION['text'])) {
                 echo '<p class="mes"> ' . $_SESSION['text'] . ' </p>';
             }
             unset($_SESSION['text']);
-            if (isset($_SESSION['final']) && !empty($_SESSION['final'])) {
-                echo '<p class="mes2"> ' . $_SESSION['final'] . ' </p>';
+            if (isset($_SESSION['outMatrix'])) {
+                echo '<p class="mes2"> ' . $_SESSION['outMatrix'] . ' </p>';
             }
-            unset($_SESSION['final']);
-            if (isset($_SESSION['let']) && !empty($_SESSION['let'])) {
-                echo '<p class="mes3"> ' . $_SESSION['let'] . ' </p>';
+            unset($_SESSION['outMatrix']);
+            if (isset($_SESSION['path'])) {
+                echo '<p class="mes3"> ' . $_SESSION['path'] . ' </p>';
             }
-            unset($_SESSION['let']);
+            unset($_SESSION['path']);
+            if (isset($_SESSION['weight'])) {
+                echo '<p class="mes3"> ' . $_SESSION['weight'] . ' </p>';
+            }
+            unset($_SESSION['weight']);
         ?> 
     </div>
 </body>
