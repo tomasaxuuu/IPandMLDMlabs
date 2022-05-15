@@ -1,21 +1,21 @@
 <?php
     session_start();
     
-    // считывание матрицы смежности && преобразование строки в массив
-    $matrix = preg_split('/[\n\r]+/', $_POST['array']);
+    // считывание матрицы && преобразование строки в массив
+    $matrix = preg_split('/[\r\n]+/', $_POST['array']);
     for ($i = 0; $i < count($matrix); $i++) {
         $matrix[$i] = trim($matrix[$i]);
-        $matrix[$i] = preg_replace('/\s+/', ' ', $matrix[$i]);
         $matrix[$i] = explode(" ", $matrix[$i]);
     }
     
-    // считывание кол-ва вершин графа
-    $points = trim(($_POST['firstTop']), " ");
-
+    // считывание стартовой и конечных вершин
+    $start = (int)$_POST['first'];
+    $last = (int)$_POST['last'];
+    
     //функция валидации
-    function validation($matrix, $points) {
-        $_SESSION['text'] = "";
-        if(strlen($points) == 0 or count($matrix) == 0) {
+    function validation($matrix, $start, $last) {
+        $_SESSION['textError'] = "";
+        if(empty($start) or empty($last) or empty($matrix)) {
             $_SESSION['text'] = "Не должно быть ни одного пустого поля!";
             return false;
         }
@@ -29,40 +29,47 @@
                     $_SESSION['text'] = "На главной диагонали должны быть нули!";
                     return false;
                 }
+                if(!is_numeric($matrix[$i][$j])) {
+                    $_SESSION['text'] = "Матрица должна состоять из цифр!";
+                    return false;
+                }
             }
         }
-        if (!is_numeric($points)) {
-            $_SESSION['text'] = "Кол-во вершин должно состоять из цифр!";
+        if ($start > count($matrix) or $last > count($matrix)) {
+            $_SESSION['text'] = "Номер вершины не совпадает с количеством вершин";
             return false;
         }
-        if ($points != count($matrix)) {
-            $_SESSION['text'] = "Число вершин не сходится с графом!";
+        if ($start == 0 or $last == 0 or $start < 0 or $last < 0) {
+            $_SESSION['text'] = "Номер вершины не совпадает с количеством вершин";
+            return false;
+        }
+        if (!is_numeric($start)) {
+            $_SESSION['text'] = "Номер вершины должен быть цифрой!";
+            return false;
+        }
+        if (!is_numeric($last)) {
+            $_SESSION['text'] = "Номер вершины должен быть цифрой!";
             return false;
         }
         return true;
     }
     
-    if(validation($matrix, $points)) {
-        $input = ''; // для вывода введенной матрицы
-        $path = ''; // хранение конечных путей
+    if(validation($matrix, $start, $last)) {
+        $start = (int)$_POST['first'] - 1; // стартовая вершина
+        $last = (int)$_POST['last'] - 1; // конечная вершина
+        $matrixOut = ''; // для вывода матрицы смежности
+        $path = array(); // массив маршрутных вершин
         $count = 0; // переменная для подсчета всех шагов выполнения алгоритма
-        $prev = array(); // пустой массив маршрутов
-        $outPath = ''; // для вывода маршрутов
 
-        //вывод введенной матрицы смежности
+        // инициализация массива
         for ($i = 0; $i < count($matrix); $i++) {
             for ($j = 0; $j < count($matrix); $j++) {
-                $input = $input.$matrix[$i][$j]." ";
+                if($i == $j) {
+                    $R[$i][$j] = -1;
+                } else {
+                    $R[$i][$j] = $j;
+                }
             }
-            $input = $input."<br>";
-        }
-    
-        // инициалиацзия массива маршрутов от 1 до последней вершины
-        for ($i = 0; $i < count($matrix); $i++) {
-            for ($j = 0; $j < count($matrix); $j++) {
-                $prev[$i][$j] = $i + 1;
-            }
-            $prev[$i][$j] = -1;
         }
 
         //алгорит Флойда-Уоршелла для нахождения минимального пути между каждой парой элементов
@@ -72,40 +79,41 @@
                     $count++;
                     if ($matrix[$i][$k] && $matrix[$k][$j] && $i != $j) {
                         if ($matrix[$i][$k] + $matrix[$k][$j] < $matrix[$i][$j] || $matrix[$i][$j] == 0) {
-                            $matrix[$i][$j] = $matrix[$i][$k] + $matrix[$k][$j]; // конечные пути
-                            $prev[$i][$j] = $prev[$k][$j]; // заносим в массив маршрутов сами маршруты       
+                            $matrix[$i][$j] = $matrix[$i][$k] + $matrix[$k][$j];
+                            $R[$i][$j] = $R[$i][$k]; 
                         }
                     }
                 }
             }
         }
-
+        
+        // вычисление кратчайшего маршрута от start до last
+        array_push($path, $start + 1);
+        if ($R != -1) {                 // если есть путь, то заносим в массив
+            while ($start != $last) {
+                $start = $R[$start][$last];
+                array_push($path, $start + 1);
+            }
+        }   
+        
         // замена всех 0 не находящихся на главной диагонали на бесконечность (INF)
         for ($i = 0; $i < count($matrix); $i++) {
             for ($j = 0; $j < count($matrix); $j++) {
-                if($i != $j and $matrix[$i][$j] == 0) {
-                    $matrix[$i][$j] = "INF"; // отсутствие пути
-                }
-                $path = $path.$matrix[$i][$j]." ";
-            }
-            $path = $path."<br>";
-        }
-
-        // вывод всех маршрутов
-        for ($i = 0; $i < count($prev); $i++) {
-            for ($j = 0; $j < count($prev); $j++) {
                 if($i == $j) {
-                    $prev[$i][$j] = "INF"; // отсутствие маршрута
+                    $matrix[$i][$j] = "INF";
                 }
-                $outPath = $outPath.$prev[$i][$j]." ";
+                $matrixOut = $matrixOut.$matrix[$i][$j]." ";
             }
-            $outPath = $outPath."<br>";
+            $matrixOut = $matrixOut."<br>";
         }
-        
-        $_SESSION['matrix'] = "Введенная матрица:<br>" . $input. "<br>Количество вершин матрицы:<br>" . count($matrix). "<br>";
-        $_SESSION['final'] = "Матрица конечных путей:<br>" . $path. "<br>Количество шагов выполнения алгоритма:<br>" . $count . "<br>";
-        $_SESSION['let'] = "Матрица всех маршрутов из 1-ой вершины в последнюю<br> по алгоритму Флойда - Уоршелла:<br>" . $outPath. "";
 
+        //вывод пути
+        for ($i = 0; $i < count($path); $i++) {
+            $_SESSION['path'] = "Маршрут из " . $path[0]. " вершины до " . $path[count($path) - 1] . ":<br>" . implode(' - ', $path) . "";
+        }
+
+        $_SESSION['outMatrix'] = "Матрица конечных путей :<br>" . $matrixOut . "<br>Количество шагов выполнения алгоритма: <br>" . $count . "<br>";
+        
         header('Location: ../index.php');
     } 
     else {

@@ -34,8 +34,8 @@
             <button class="button" type="submit"><a class="decoration" href="../MLDM labs/Lab1/page/1lab.html">Laboratory work No.1</a></button>
             <button class="button" type="submit"><a class="decoration" href="../MLDM labs/Lab2/page/dm2.html">Laboratory work No.2</a></button>
             <button class="button" type="submit"><a class="decoration" href="../MLDM labs/lab3/index.html">Laboratory work No.3</a></button>
-            <button class="button" type="submit"><a class="decoration" href="#">Laboratory work No.4</a></button>
-            <button class="button" type="submit"><a class="decoration" href="#">Laboratory work No.5</a></button>
+            <button class="button" type="submit"><a class="decoration" href="../MLDM labs/lab4/index.php">Laboratory work No.4</a></button>
+            <button class="button" type="submit"><a class="decoration" href="../MLDM labs/lab5/index.php">Laboratory work No.5</a></button>
         </div>
     </main>
 </body>
